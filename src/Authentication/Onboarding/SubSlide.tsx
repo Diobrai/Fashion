@@ -1,8 +1,8 @@
 
 import 'react-native-gesture-handler';
 import * as React from 'react';
-import {View, StyleSheet, Text} from "react-native";
-import Button from '../../Components/Button';
+import {View, StyleSheet} from "react-native";
+import {Button, Text} from '../../Components';
 const styles = StyleSheet.create({
     container: {
         flex:1,
@@ -11,17 +11,11 @@ const styles = StyleSheet.create({
         padding: 44
     },
     subLabel: {
-        fontFamily: "SFProText-Semibold",
-        fontSize: 24,
-        lineHeight: 30,
-        color: "#0C0D34",
         marginBottom: 12,
-        marginTop: 40
+        marginTop: 40,
+        textAlign: "center"
     },
     description: {
-        fontFamily: "SFProText-Regular",
-        fontSize: 16,
-        lineHeight: 24,
         color: "#0C0D34",
         textAlign: "center",
         marginBottom: 40
@@ -36,8 +30,8 @@ interface SubSlideProps {
 const SubSlide = ({subLabel, description, last, onPress}: SubSlideProps) => {
     return (
         <View style={styles.container}>
-            <Text style={styles.subLabel}>{subLabel}</Text>
-            <Text style={styles.description}>{description}</Text>
+            <Text variant="title2" style={styles.subLabel}>{subLabel}</Text>
+            <Text variant="body1" style={styles.description}>{description}</Text>
             <Button
                 label={last ? "Let's started" : "Next" }
                 variant={last ? "primary": "default"}

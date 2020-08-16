@@ -1,7 +1,8 @@
 
 import 'react-native-gesture-handler';
 import * as React from 'react';
-import {View, StyleSheet, Text, Dimensions, Image} from "react-native";
+import {View, StyleSheet, Dimensions, Image} from "react-native";
+import {Text} from "../../Components";
 const { width, height} = Dimensions.get("window");
 export const SLIDE_HEIGHT = 0.61 * height;
 export const BORDER_RADIUS = 75;
@@ -50,7 +51,7 @@ const Slide = ({label, right, picture}: SlideProps) => {
                 <Image source={picture} style={styles.picture} />
             </View>
             <View style={[styles.titleContainer, {transform}]}>
-                <Text style={styles.title}>{label}</Text>
+                <Text variant="title1">{label}</Text>
             </View>
         </View>
     );

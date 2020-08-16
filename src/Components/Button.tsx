@@ -1,8 +1,8 @@
-
 import 'react-native-gesture-handler';
 import * as React from 'react';
 import {View, StyleSheet, Text, Dimensions} from "react-native";
 import {RectButton} from "react-native-gesture-handler";
+import {backgroundColor, color, useTheme} from "@shopify/restyle";
 const { width, height} = Dimensions.get("window");
 export const SLIDE_HEIGHT = 0.61 * height;
 const styles = StyleSheet.create({
@@ -29,9 +29,11 @@ interface ButtonProps {
     label: string,
     onPress: () => void;
 }
+
 const Button = ({label, variant, onPress}: ButtonProps) => {
-    const backgroundColor = variant === "primary" ? "#2CB9B0" : "rgba(12, 13, 52, 0.05)";
-    const color = variant === "primary" ? "white": "#0C0D34";
+    const theme = useTheme();
+    const backgroundColor = variant === "primary" ? theme.colors.primary : theme.colors.gray;
+    const color = variant === "primary" ? theme.colors.white: theme.colors.title;
     return (
         <RectButton style={[styles.container, { backgroundColor}]} {...{onPress}}>
             <Text style={[styles.label, { color}]}>{label}</Text>
